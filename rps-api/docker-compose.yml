@@ -1,0 +1,35 @@
+# rps-api/docker-compose.yml
+version: '3.8'
+
+services:
+  api:
+    build:
+      context: .
+    ports:
+      - "8000:8000"
+      - "9000:9000"
+    volumes:
+      - .:/var/www
+      - ./storage:/var/www/storage
+      - ./bootstrap/cache:/var/www/bootstrap/cache
+    environment:
+      - APP_KEY=base64:your-app-key
+      - APP_DEBUG=true
+      - APP_URL=http://api:8000
+
+# Remove the db service
+# db:
+#   image: mysql:8.0
+#   ports:
+#     - "3306:3306"
+#   environment:
+#     - MYSQL_DATABASE=rps_db
+#     - MYSQL_USER=root
+#     - MYSQL_PASSWORD=root
+#     - MYSQL_ROOT_PASSWORD=root
+#   volumes:
+#     - dbdata:/var/lib/mysql
+
+# Remove the volumes section if not needed
+# volumes:
+#   dbdata:

@@ -1,0 +1,46 @@
+# rock-paper-scissors/docker-compose.yml
+version: "3.8"
+
+services:
+  ui:
+    build:
+      context: ./rock-paper-scissors-ui
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./rock-paper-scissors-ui:/app
+    depends_on:
+      - api
+    environment:
+      - REACT_APP_API_URL=http://api:8000/api
+
+  api:
+    build:
+      context: ./rps-api
+    ports:
+      - "8000:8000"
+      - "9000:9000"
+    volumes:
+      - ./rps-api:/var/www
+      - ./rps-api/storage:/var/www/storage
+      - ./rps-api/bootstrap/cache:/var/www/bootstrap/cache
+    environment:
+      - APP_KEY=base64:yx4dcQ4tfpwZReAOYiq7K2HpXIBRYoNrHXFFSrCEb0c=
+      - APP_DEBUG=true
+      - APP_URL=http://api:8000
+# Remove the db service
+# db:
+#   image: mysql:8.0
+#   ports:
+#     - "3306:3306"
+#   environment:
+#     - MYSQL_DATABASE=rps_db
+#     - MYSQL_USER=root
+#     - MYSQL_PASSWORD=root
+#     - MYSQL_ROOT_PASSWORD=root
+#   volumes:
+#     - dbdata:/var/lib/mysql
+
+# Remove the volumes section if not needed
+# volumes:
+#   dbdata:

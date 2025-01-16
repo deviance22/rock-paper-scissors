@@ -1,0 +1,13 @@
+# rock-paper-scissors-ui/docker-compose.yml
+version: '3.8'
+
+services:
+  ui:
+    build:
+      context: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+    environment:
+      - REACT_APP_API_URL=http://api:8000/api
