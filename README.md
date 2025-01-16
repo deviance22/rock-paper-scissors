@@ -22,7 +22,7 @@ docker-compose up -d
 
 The game will be available at http://localhost:3000
 
-If there's a problem with the APP_KEY, you can generate a new key by running the following command:
+Once running, generate a new key by running the following command:
 
 `docker exec -it rock-paper-scissors-api-1 php artisan key:generate --show`
 
