@@ -12,25 +12,25 @@ To run the game, use the command (this is assuming you have Docker installed):
 
 Create an .env file in the root directory with the values found in .env.example file.
 
-### cd path/to/rock-paper-scissors
+### `cd path/to/rock-paper-scissors`
 
-### docker-compose build
+### `docker-compose build`
 
-### docker-compose up -d
+### `docker-compose up -d`
 
 The game will be available at http://localhost:3000
 
 If there's a problem with the APP_KEY, you can generate a new key by running the following command:
 
-### docker exec -it rock-paper-scissors-api-1 php artisan key:generate --show
+### `docker exec -it rock-paper-scissors-api-1 php artisan key:generate --show`
 
 Copy the generated key and replace the existing APP_KEY in the .env.docker file.
 
 Then redo the build and up commands.
 
-### docker-compose build
+### `docker-compose build`
 
-### docker-compose up -d
+### `docker-compose up -d`
 
 # Playing the game
 
