@@ -30,7 +30,7 @@ Copy the generated key and replace the existing APP_KEY in the .env.docker file.
 
 Then redo the build and up commands.
 
-````
+```
 docker-compose build
 
 docker-compose up -d
@@ -48,4 +48,7 @@ To play the game, player 2 has to simply choose between "rock, paper or scissors
 - When adding a new choice, we only need to update any choices that it affects in the beats() method.
 - There's also an option to add new players, however, I wasn't able to fully implement the dynamic nature of the game. I've added a Player interface that handles the type of player. For now, human players are only implemented. And only 2 players are allowed.
 - If I could've done better, I would have it dyanmic when asking for the number of rounds to play, number of players and what choices are available. This would make the game more flexible and easier to maintain.
-````
+
+```
+
+```
